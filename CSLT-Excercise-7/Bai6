@@ -1,0 +1,28 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Bai6
+{
+    internal class Program
+    {
+        private static int[] ReverseArray(int[] arr)
+        {
+            int[] reversed = new int[arr.Length];
+            for (int i = 0; i < arr.Length; i++)
+            {
+                reversed[i] = arr[arr.Length - 1 - i];
+            }
+            return reversed;
+        }
+
+        static void Main(string[] args)
+        {
+            int[] randomArray = { 5, 12, 3, 19, 7, 12, 5, 2, 10, 14 };
+            int[] result = ReverseArray(randomArray);
+            Console.WriteLine("Reversed Array: [" + string.Join(", ", result) + "]");
+        }
+    }
+}
