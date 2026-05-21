@@ -1,0 +1,41 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Bai4
+{
+    internal class Program
+    {
+        //to remove a specific element from an array.
+        static int[] RemoveElement(int[] arr, int value)
+        {
+            // Tìm vị trí của phần tử cần xóa trước
+            int index = -1;
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (arr[i] == value) { index = i; break; }
+            }
+
+            if (index == -1) return arr; // Không tìm thấy thì giữ nguyên mảng cũ
+
+            // Tạo mảng mới có kích thước nhỏ hơn mảng cũ 1 đơn vị
+            int[] newArr = new int[arr.Length - 1];
+            for (int i = 0, j = 0; i < arr.Length; i++)
+            {
+                if (i == index) continue; // Bỏ qua phần tử cần xóa
+                newArr[j++] = arr[i];
+            }
+            return newArr;
+        }
+        static void Main(string[] args)
+        {
+            int[] randomArray = { 5, 12, 3, 19, 7, 12, 5, 2, 10, 14 };
+            int target = 7;
+
+            int[] result = RemoveElement(randomArray, target);
+            Console.WriteLine("Array after removal: [" + string.Join(", ", result) + "]");
+        }
+    }
+}
