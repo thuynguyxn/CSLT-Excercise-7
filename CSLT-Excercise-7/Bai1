@@ -1,0 +1,25 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp2
+{
+    internal class Program
+    {
+        //to calculate the average value of array elements.
+            static double CalculateAverage(int[] arr)
+            {
+                int sum = 0;
+                foreach (int num in arr) sum += num;
+                return (double)sum / arr.Length;
+            }
+            static void Main(string[] args)
+        {
+                int[] randomArray = { 5, 12, 3, 19, 7, 12, 5, 2, 10, 14 };
+                double avg = CalculateAverage(randomArray);
+                Console.WriteLine($"Average Value: {avg:F2}");
+            }
+    }
+}
