@@ -1,0 +1,34 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Bai7
+{
+    internal class Program
+    {
+        static int[] FindDuplicates(int[] arr)
+        {
+            List<int> duplicates = new List<int>();
+            List<int> seen = new List<int>();
+
+            foreach (int num in arr)
+            {
+                // Nếu đã từng thấy số này và nó chưa được thêm vào danh sách trùng lặp
+                if (seen.Contains(num) && !duplicates.Contains(num))
+                {
+                    duplicates.Add(num);
+                }
+                seen.Add(num);
+            }
+            return duplicates.ToArray();
+        }
+        static void Main(string[] args)
+        {
+            int[] randomArray = { 5, 12, 3, 19, 7, 12, 5, 2, 10, 14 };
+            int[] result = FindDuplicates(randomArray);
+            Console.WriteLine("Duplicate values: [" + string.Join(", ", result) + "]");
+        }
+    }
+}
