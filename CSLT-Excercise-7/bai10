@@ -1,0 +1,46 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Bai010
+{
+    internal class Program
+    {
+        static int LinearSearch(string[] array, string target)
+        {
+            for (int i = 0; i < array.Length; i++)
+            {
+                // So sánh không phân biệt chữ hoa chữ thường
+                if (array[i].Equals(target, StringComparison.OrdinalIgnoreCase))
+                {
+                    return i; // Tìm thấy, trả về vị trí index
+                }
+            }
+            return -1; // Không tìm thấy
+        }
+        static void Main(string[] args)
+        {
+            Console.Write("Request a sentence: ");
+            string sentence = Console.ReadLine();
+
+            Console.Write("Enter a word to search for: ");
+            string searchWord = Console.ReadLine();
+
+            // Tách câu thành mảng các từ, loại bỏ các dấu câu cơ bản
+            string[] words = sentence.Split(new char[] { ' ', '.', ',', '!', '?' }, StringSplitOptions.RemoveEmptyEntries);
+
+            int index = LinearSearch(words, searchWord);
+
+            if (index != -1)
+            {
+                Console.WriteLine($"Success! The word '{searchWord}' was found at word-position {index + 1}.");
+            }
+            else
+            {
+                Console.WriteLine($"The word '{searchWord}' does not appear in the phrase.");
+            }
+        }
+    }
+}
