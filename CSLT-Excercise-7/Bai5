@@ -1,0 +1,30 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Bai5
+{
+    //to find the maximum and minimum value of an array.
+    internal class Program
+    {
+        static void FindMaxMin(int[] arr, out int max, out int min)
+        {
+            max = arr[0];
+            min = arr[0];
+            for (int i = 1; i < arr.Length; i++)
+            {
+                if (arr[i] > max) max = arr[i];
+                if (arr[i] < min) min = arr[i];
+            }
+        }
+        static void Main(string[] args)
+        {
+            int[] randomArray = { 5, 12, 3, 19, 7, 12, 5, 2, 10, 14 };
+            FindMaxMin(randomArray, out int max, out int min);
+            Console.WriteLine($"Max Value: {max} | Min Value: {min}");
+        }
+    }
+}
+
